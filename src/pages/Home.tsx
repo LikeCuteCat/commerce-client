@@ -1,9 +1,11 @@
+import Banner from "../components/common/Banner";
+
 function Home() {
   return (
     <div>
-      <p>Vue는 갓성수가 잘한다!!!</p>
-      <p>그리고 우리는 꼭꼭꼭 이 프젝으로 이직에 성공할것이다.</p>
-      <p>이거 테스트 해보고 싶어..</p>
+      <Banner color="bg-lime-100" hasCloser>
+        LCC와 함께 나만의 데스크 테리어를 꾸며 보세요! 지금 왕창 세일 중!!!
+      </Banner>
     </div>
   );
 }
