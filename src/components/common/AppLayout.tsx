@@ -1,15 +1,31 @@
-import { ReactNode } from "react";
+import { useState, ReactNode } from "react";
+import DropdownBtn from "./DropdownBtn";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   children: ReactNode;
 };
 
 function AppLayout({ children }: Props) {
+  const [openIndex, setOpenIndex] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const onToggle = (index: string) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
+  const onHeadingClick = () => {
+    navigate("/");
+  };
+
   return (
     <div className="min-h-screen w-full flex justify-center pt-5">
       <div className="w-9/12">
         <header className="text-center">
-          <h1 className="text-4xl font-bold hover:cursor-pointer">
+          <h1
+            className="text-4xl font-bold hover:cursor-pointer"
+            onClick={onHeadingClick}
+          >
             Lick Cute Cats
           </h1>
         </header>
@@ -17,29 +33,49 @@ function AppLayout({ children }: Props) {
         <section className="navbar flex justify-center">
           <ul className="flex justify-between w-3/6 text-2xl font-semibold">
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <DropdownBtn
+                index="brand"
+                openIndex={openIndex}
+                onToggle={onToggle}
+              >
                 Brand
-              </a>
+              </DropdownBtn>
             </li>
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <DropdownBtn
+                index="light"
+                openIndex={openIndex}
+                onToggle={onToggle}
+              >
                 조명
-              </a>
+              </DropdownBtn>
             </li>
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <DropdownBtn
+                index="desk"
+                openIndex={openIndex}
+                onToggle={onToggle}
+              >
                 Desk
-              </a>
+              </DropdownBtn>
             </li>
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <DropdownBtn
+                index="chair"
+                openIndex={openIndex}
+                onToggle={onToggle}
+              >
                 Chair
-              </a>
+              </DropdownBtn>
             </li>
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <DropdownBtn
+                index="speaker"
+                openIndex={openIndex}
+                onToggle={onToggle}
+              >
                 Speaker
-              </a>
+              </DropdownBtn>
             </li>
           </ul>
         </section>
@@ -48,5 +84,5 @@ function AppLayout({ children }: Props) {
     </div>
   );
 }
-``;
+
 export default AppLayout;

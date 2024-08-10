@@ -10,7 +10,6 @@ type Props = {
  * @param {ReactNode} children - 배너에 표시할 내용.
  * @param {string} color - 배너의 색상. Tailwind CSS 색상을 사용.
  * @param {boolean} hasCloser - 닫기 버튼을 표시할지 여부.
- *
  */
 
 function Banner({ children, color, hasCloser = false }: Props) {
