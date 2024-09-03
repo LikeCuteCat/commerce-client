@@ -21,13 +21,16 @@ function AppLayout({ children }: Props) {
   return (
     <div className="min-h-screen w-full flex justify-center pt-5">
       <div className="w-9/12">
-        <header className="text-center">
+        <header className="flex flex-row justify-between text-center">
           <h1
             className="text-4xl font-bold hover:cursor-pointer"
             onClick={onHeadingClick}
           >
             Lick Cute Cats
           </h1>
+          <section>
+            <button onClick={() => navigate("/admin")}>설정</button>
+          </section>
         </header>
         <div className="divider m-0"></div>
         <section className="navbar flex justify-center">
